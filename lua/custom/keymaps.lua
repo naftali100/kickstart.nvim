@@ -47,8 +47,11 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
--- move line up and down using alt+up and alt+down, for both normal and insert mode
+-- move line up and down using alt+k and alt+j, for both normal and insert mode
 vim.keymap.set({ "n" }, "<M-k>", "<Esc>:m .-2<CR>")
 vim.keymap.set({ "n" }, "<M-j>", "<Esc>:m .+1<CR>")
 vim.keymap.set({ "i" }, "<M-k>", "<Esc>:m .-2<CR>:startinsert<CR>")
 vim.keymap.set({ "i" }, "<M-j>", "<Esc>:m .+1<CR>:startinsert<CR>")
+
+-- close current buffer
+vim.keymap.set("n", "<leader>bd", "<cmd>Bdelete!<CR>", { desc = '[B]uffer [D]elete' })
