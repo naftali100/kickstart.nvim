@@ -29,4 +29,6 @@ return {
   'pocco81/auto-save.nvim',
   'ThePrimeagen/harpoon',
   'anuvyklack/hydra.nvim',
+  'anuvyklack/pretty-fold.nvim',
+  'rcarriga/nvim-notify',
 }
