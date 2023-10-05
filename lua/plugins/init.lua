@@ -5,16 +5,13 @@
 return {
   -- Auto close brackets
   -- 'm4xshen/autoclose.nvim',
-  -- "windwp/nvim-autopairs",
+
+  -- smooth scrolling
+  {
+    'declancm/cinnamon.nvim',
+    config = function() require('cinnamon').setup() end
+  },
   'ThePrimeagen/vim-be-good',
-  'karb94/neoscroll.nvim',
-  -- {
-  --   'windwp/nvim-autopairs',
-  --   event = "InsertEnter",
-  --   opts = {
-  --     ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
-  --   }                          -- this is equalent to setup({}) function
-  -- }
   -- {
   --   'goolord/alpha-nvim',
   --   config = function()

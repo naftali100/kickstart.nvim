@@ -4,6 +4,7 @@
 -- <leader>h - Harpoon
 -- <leader>s - Search
 -- <leader>t - Telescope
+-- <leader>g - Git
 
 -- [[ Basic Keymaps ]]
 
@@ -22,8 +23,8 @@ keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- from ThePrimagen's dotfiles
 -- move by page and paragraph, and keep the view centered
 keymap("n", "J", "mzJ`z")
-keymap("n", "<C-d>", "<C-d>zz")
-keymap("n", "<C-u>", "<C-u>zz")
+-- keymap("n", "<C-d>", "<C-d>zz")
+-- keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 keymap("n", "}", "{zz")
@@ -79,13 +80,21 @@ keymap('n', '<leader>hf', mark.add_file, { desc = '[H]arpoon [F]ile' })
 keymap('n', '<leader>hm', ui.toggle_quick_menu, { desc = '[H]arpoon [M]enu' })
 keymap('n', '<leader>hp', ui.nav_prev, { desc = '[H]arpoon [P]revious' })
 keymap('n', '<leader>hn', ui.nav_next, { desc = '[H]arpoon [N]ext' })
-keymap('n', '<leader>1', ui.nav_file, { desc = '[H]arpoon [1]' })
-keymap('n', '<leader>2', ui.nav_file, { desc = '[H]arpoon [2]' })
-keymap('n', '<leader>3', ui.nav_file, { desc = '[H]arpoon [3]' })
-keymap('n', '<leader>4', ui.nav_file, { desc = '[H]arpoon [4]' })
+keymap('n', '<leader>1', function() ui.nav_file(1) end, { desc = '[H]arpoon [1]' })
+keymap('n', '<leader>2', function() ui.nav_file(2) end, { desc = '[H]arpoon [2]' })
+keymap('n', '<leader>3', function() ui.nav_file(3) end, { desc = '[H]arpoon [3]' })
+keymap('n', '<leader>4', function() ui.nav_file(4) end, { desc = '[H]arpoon [4]' })
 
 -- telescope
 keymap('n', '<leader>tk', require('telescope.builtin').keymaps, { desc = '[T]elescope [K]eymaps' })
 
 keymap('n', '<leader>so', '<cmd>so %<CR>', { desc = '[S]ource [O]rigin' })
 
+-- Yank all and center on previous mouse position
+keymap('n', '<leader>ya', 'Gygg<C-o>zz', { desc = '[Y]ank [A]ll' })
+
+-- paste line
+-- keymap('n', 'p', 'p', { desc = '[P]aste' })
+-- keymap('n', 'pl', '<cmd>set paste<CR>o<esc>p:set nopaste<cr>', { desc = '[P]aste [L]ine' })
+-- delete line
+keymap('n', '<C-x>', 'dd', { desc = 'delete line', silent = true })
