@@ -3,7 +3,7 @@
   q to skip
   Q to unselect under cursor
   i,c,d,y to select all, change, delete, yank
-]] 
+]]
 
 return {
   {
