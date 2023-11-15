@@ -164,10 +164,7 @@ require('lazy').setup({
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     main = "ibl",
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    opts = {},
   },
 
   -- "gc" to comment visual regions/lines
@@ -215,7 +212,11 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'plugins' },
-}, {})
+}, {
+    defaults = {
+      -- lazy = true,
+    }
+  })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

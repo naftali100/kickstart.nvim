@@ -7,10 +7,11 @@ return {
   'ThePrimeagen/vim-be-good',
   -- {
   --   'goolord/alpha-nvim',
+  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
   --   config = function()
   --     require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
   --   end
-  -- }
+  -- },
   {
     'f-person/git-blame.nvim',
     opts = {
@@ -24,4 +25,5 @@ return {
   'anuvyklack/hydra.nvim',
   'anuvyklack/pretty-fold.nvim',
   'rcarriga/nvim-notify',
+  { 'echasnovski/mini.nvim', version = false },
 }
