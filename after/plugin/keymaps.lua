@@ -8,7 +8,6 @@
 
 -- [[ Basic Keymaps ]]
 
-
 local keymap = vim.keymap.set
 
 -- Keymaps for better default experience
@@ -32,9 +31,26 @@ keymap("n", "{", "}zz")
 
 keymap({ "i", "c", "v" }, "<c-c>", "<esc>")
 
+-- TIP: Disable arrow keys in normal mode
+keymap('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+keymap('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+keymap('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+keymap('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+
+-- move line up and down using alt+k and alt+j
+keymap({ "n" }, "<M-k>", "<Esc>:m .-2<CR>")
+keymap({ "n" }, "<M-j>", "<Esc>:m .+1<CR>")
+keymap({ "i" }, "<M-k>", "<Esc>:m .-2<CR>:startinsert<CR>")
+keymap({ "i" }, "<M-j>", "<Esc>:m .+1<CR>:startinsert<CR>")
+keymap('x', '<M-j>', ":m'>+<CR>gv=gv", { noremap = true, silent = true })
+keymap('x', '<M-k>', ":m-2<CR>gv=gv", { noremap = true, silent = true })
+
 --[[ LSP settings ]]
 
 -- See `:help telescope.builtin`
+
+-- [[ Search Section ]]
+--
 keymap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 keymap('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 keymap('n', '<leader>/', function()
@@ -60,16 +76,9 @@ keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic mess
 keymap('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
--- move line up and down using alt+k and alt+j, for both normal and insert mode
-keymap({ "n" }, "<M-k>", "<Esc>:m .-2<CR>")
-keymap({ "n" }, "<M-j>", "<Esc>:m .+1<CR>")
-keymap({ "i" }, "<M-k>", "<Esc>:m .-2<CR>:startinsert<CR>")
-keymap({ "i" }, "<M-j>", "<Esc>:m .+1<CR>:startinsert<CR>")
-
 -- close current buffer
 keymap("n", "<leader>sa", "<cmd>ASToggle<CR>", { desc = 'auto save toggle' })
 keymap("n", "<leader>bd", "<cmd>Bdelete!<CR>", { desc = '[B]uffer [D]elete' })
-
 
 keymap("n", "<leader>lf", "<cmd>Format<CR>", { desc = '[L]SP [F]ormat' })
 
@@ -99,3 +108,4 @@ keymap('n', '<leader>ya', 'Gygg<C-o>zz', { desc = '[Y]ank [A]ll' })
 -- keymap('n', 'pl', '<cmd>set paste<CR>o<esc>p:set nopaste<cr>', { desc = '[P]aste [L]ine' })
 -- delete line
 keymap('n', '<C-x>', 'dd', { desc = 'delete line', silent = true })
+
