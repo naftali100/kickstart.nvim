@@ -42,3 +42,5 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 vim.o.scrolloff = 8
+
+vim.o.showmode = false

@@ -62,6 +62,8 @@ keymap('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 keymap('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+keymap('n', '<leader>gd', ':DiffviewOpen<cr>', { desc = '[G]it [D]iff' })
+
 keymap('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 keymap('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 keymap('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })

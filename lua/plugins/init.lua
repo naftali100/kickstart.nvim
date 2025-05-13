@@ -18,7 +18,7 @@ return {
       virtual_text_column = 80
     }
   },
-  'Exafunction/codeium.vim', -- codeium ai
+  -- 'Exafunction/codeium.vim', -- codeium ai
   --  'unblevable/quick-scope',  -- highlighs unique characters for easier f,t navigation
   'pocco81/auto-save.nvim',
   'ThePrimeagen/harpoon',
